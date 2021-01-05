@@ -54,9 +54,9 @@ pipeline{
         }
          stage('deploy-to-dev'){
              agent any
-             when{
-                 branch:'master'
-             }
+            //  when{
+            //      branch:'master'
+            //  }
             steps{
                 echo 'Preparing docker composer run'
                 sh 'docker-compose up -d'
