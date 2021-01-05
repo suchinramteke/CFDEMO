@@ -44,7 +44,7 @@ pipeline{
             steps{
                 echo 'Preparing docker image file'
                 script{
-                   docker.withRegistry('https://index.docker.io/v1', 'dockerlogin') {
+                   docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
                        def workerImage = docker.build("suchin/nodeapp:v${env.BUILD_ID}","./")
                        workerImage.push()
                     //    workerImage.push("${env.BRANCH_NAME}")
