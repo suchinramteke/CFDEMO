@@ -1,14 +1,13 @@
-FROM node:8.16.0-alpine
+FROM node:10
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
 
-# Or if you're using Yarn
-# ADD package.json yarn.lock /app/
-# RUN yarn install
-ENTRYPOINT  5000
+COPY . .
 
-CMD  node server.js
+EXPOSE 3000
+
+CMD ["npm", "start"]

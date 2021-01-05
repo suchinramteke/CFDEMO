@@ -24,7 +24,8 @@ db.sequelize.sync().then(() => {
 })
 
 // for run server in specific port
-app.listen(5000, () => {
+const port = 3000
+app.listen(port, () => {
     console.log(`Server running `);
 });
 
