@@ -4,4 +4,4 @@ services:
   nodeapp:
     image: suchin/nodeapp:master
     ports: 
-      - 5000:80
+      - 6000:6000

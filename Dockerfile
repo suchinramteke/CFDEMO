@@ -9,6 +9,6 @@ RUN npm install
 # Or if you're using Yarn
 # ADD package.json yarn.lock /app/
 # RUN yarn install
-ENTRYPOINT  5000
+ENTRYPOINT  6000
 
 CMD  node server.js
