@@ -47,9 +47,20 @@ pipeline{
                    docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
                        def workerImage = docker.build("suchin/nodeapp:v${env.BUILD_ID}","./")
                        workerImage.push()
-                    //    workerImage.push("${env.BRANCH_NAME}")
+                       workerImage.push("${env.BRANCH_NAME}")
                    }
                 }
+            }
+        }
+         stage('deploy-to-dev'){
+             agent any
+             when{
+                 branch:'master'
+             }
+            steps{
+                echo 'Preparing docker composer run'
+                sh 'docker-compose up -d'
+              
             }
         }
     }
