@@ -1,12 +1,14 @@
 pipeline{
-    agent {
-        docker{
-            image 'node:8.16.0-alpine'
-        }
-    }
+    agent none
+   
 
     stages{
         stage('build'){
+             agent {
+                docker{
+                    image 'node:8.16.0-alpine'
+                }
+        }
             when{
                 branch 'master'
                 // changeset "**"
@@ -18,16 +20,27 @@ pipeline{
             }
         }
          stage('test'){
+              agent {
+                docker{
+                    image 'node:8.16.0-alpine'
+                }
+}
             steps{
                 echo 'Step test'
             }
         }
          stage('package'){
+              agent {
+        docker{
+            image 'node:8.16.0-alpine'
+        }
+    }
             steps{
                 echo 'Step package'
             }
         }
          stage('docker-package'){
+             agent any
             steps{
                 echo 'Preparing docker image file'
                 script{
