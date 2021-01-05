@@ -3,5 +3,5 @@ version: "3.7"
 services:
   nodeapp:
     image: suchin/nodeapp:master
-    ports: 
-      - 6000:6000
+    ports:
+      6000:6000
