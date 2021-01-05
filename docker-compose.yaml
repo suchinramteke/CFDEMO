@@ -3,4 +3,5 @@ version: "3.7"
 services:
   nodeapp:
     image: suchin/nodeapp:master
-    ports: 5000:80
+    ports: 
+      - 5000:80
