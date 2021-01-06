@@ -42,7 +42,8 @@ router.put("/", (req, res) => {
 
 // Delete user
 router.delete("/:id", (req, res) => {
-    db.User.destroy({ where: { id: req.body.id } }).then(result => {
+    console.log(req.params)
+    db.User.destroy({ where: { id: req.params.id } }).then(result => {
         res.json({ "message": "User deleted Sucessfully" })
     }).catch(error => {
         res.json({ "error": error })
