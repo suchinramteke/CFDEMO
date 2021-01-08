@@ -43,7 +43,7 @@ pipeline{
              agent any
             steps{
                 echo 'Preparing docker image file'
-                script{ 
+                script{  
                    docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
                        def workerImage = docker.build("suchin/newapp:v${env.BUILD_ID}","./")
                        workerImage.push()
